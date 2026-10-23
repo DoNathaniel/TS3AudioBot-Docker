@@ -59,6 +59,7 @@ RUN groupadd -g 9999 ts3audiobot && \
 
 COPY --from=builder --chown=root:root /usr/local/bin/yt-dlp /usr/local/bin/yt-dlp
 COPY --from=builder --chown=root:root /out/ /opt/TS3AudioBot/
+COPY --chown=root:root ./config/NLog.config /opt/TS3AudioBot/NLog.config
 
 WORKDIR /data
 COPY --chown=9999:9999 ./config .
