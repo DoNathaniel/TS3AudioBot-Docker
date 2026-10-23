@@ -1,12 +1,16 @@
 services:
   ts3audiobot:
-    image: ghcr.io/cookiecr2nk/ts3audiobot-docker:master
+    image: ts3audiobot-docker:develop
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BOT_REF: develop
     restart: unless-stopped
-    environment:
-      DOTNET_BUNDLE_EXTRACT_BASE_DIR: /data/.net
-      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: "true"
     expose:
       - "58913"
+    ports:
+      - "127.0.0.1:15891:58913"
     volumes:
       - ts3audiobot-data:/data
     tmpfs:
