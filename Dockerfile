@@ -48,7 +48,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends ca-certificates ffmpeg curl libopus0 libicu-dev libssl-dev && \
+    apt-get install -y --no-install-recommends ca-certificates ffmpeg curl libopus-dev libicu-dev libssl-dev && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     find / -xdev -perm /6000 -type f -print0 | xargs -0 -r chmod a-s
 
