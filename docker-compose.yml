@@ -1,12 +1,11 @@
 services:
   ts3audiobot:
     image: ghcr.io/cookiecr2nk/ts3audiobot-docker:master
-    container_name: ts3audiobot
     restart: unless-stopped
-    ports:
-      - "58913:58913"
+    expose:
+      - "58913"
     volumes:
-      - ./data:/data
+      - ts3audiobot-data:/data
     tmpfs:
       - /tmp:mode=1777,size=64m
     read_only: true
@@ -20,3 +19,12 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    networks:
+      - dokploy-network
+
+volumes:
+  ts3audiobot-data:
+
+networks:
+  dokploy-network:
+    external: true
