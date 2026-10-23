@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     expose:
       - "58913"
+    ports:
+      - "127.0.0.1:15891:58913"
     volumes:
       - ts3audiobot-data:/data
     tmpfs:
