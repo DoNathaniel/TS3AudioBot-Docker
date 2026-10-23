@@ -3,7 +3,7 @@ services:
     image: ghcr.io/cookiecr2nk/ts3audiobot-docker:master
     restart: unless-stopped
     environment:
-      DOTNET_BUNDLE_EXTRACT_BASE_DIR: /tmp/.net
+      DOTNET_BUNDLE_EXTRACT_BASE_DIR: /data/.net
     expose:
       - "58913"
     volumes:
